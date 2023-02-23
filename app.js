@@ -2,11 +2,11 @@ var frontCamera=false
 var currentStream;
 
 const
-cameraView = document.querySelector("#camera-view");
-cameraDevice = document.querySelector("#camera-device");
-photoDisplay = document.querySelector("#photo-display");
-takePhotoButton = document.querySelector("#take-photo-button");
-frontCameraButton = document.querySelector("#front-camera-button");
+    cameraView = document.querySelector("#camera-view");
+    cameraDevice = document.querySelector("#camera-device");
+    photoDisplay = document.querySelector("#photo-display");
+    takePhotoButton = document.querySelector("#take-photo-button");
+    frontCameraButton = document.querySelector("#front-camera-button");
 
 function cameraStart(){
     if(typeof currentStream !== 'undefined'){
@@ -28,7 +28,7 @@ function cameraStart(){
 takePhotoButton.onClick = function(){
     cameraView.width= cameraDevice.videoWidth;
     cameraView.height= cameraDevice.videoHeight;
-    cameraView.getContext("2d").drawimage(cameraDevice,0,0);
+    cameraView.getContext("2d").drawImage(cameraDevice,0,0);
     photoDisplay.src = cameraView.toDataURL("image/webp");
     photoDisplay.classList.add("photo-taken")
 };
