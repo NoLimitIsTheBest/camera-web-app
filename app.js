@@ -9,14 +9,16 @@ takePhotoButton = document.querySelector("#take-photo-button");
 frontCameraButton = document.querySelector("#front-camera-button");
 
 function cameraStart(){
-    if(typeof currentStream != undefined){
-        currentStream.getTracks().forEach(track=>track.stop());
+    if(typeof currentStream !== 'undefined'){
+        currentStream.getTracks().forEach(track=> {
+            track.stop()
+        });
     }
 
     var constraints = {video:{facingMode:(frontCamera? "user":"environment"), auto:false}}
 
     navigator.mediaDevices.getUserMedia(constraints).then(function(stream){
-        currentStream = true;
+        currentStream = stream;
         cameraDevice.srcObject = stream;
     }).catch(function(error){
         console.error("Error",error);
@@ -34,11 +36,11 @@ takePhotoButton.onClick = function(){
 frontCameraButton.onclick = function(){
     frontCamera =!frontCamera;
     if(frontCamera){
-        frontCameraButton.textContent = "Back Camera"
+        frontCameraButton.textContent = "Back Camera";
     }else{
-        frontCameraButton.textContent = "Front Camera"
+        frontCameraButton.textContent = "Front Camera";
     }
     cameraStart();
-}
+};
 
 window.addEventListener("load", cameraStart);

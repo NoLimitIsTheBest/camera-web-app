@@ -1,5 +1,5 @@
 html, body{
-    margin:0 px;
+    margin:0px;
     padding: 0px;
 }
 
@@ -12,13 +12,13 @@ html, body{
 
 #take-photo-button{
     position: fixed;
-    height: 30px;
+    bottom: 30px;
     width: 100%;
 }
 
 #front-camera-button{
     position: fixed;
-    height: 80px;
+    bottom: 80px;
     width: 100%;
 }
 
